@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: DemoCamelApplication
+  server:
+    port: 8080
+  servlet:
+    context-path: /chinesewhispers
+
+

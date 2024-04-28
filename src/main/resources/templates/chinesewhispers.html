@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese whispers</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom background color change every 20 seconds */
+        body {
+            animation: colorChange 20s infinite alternate;
+        }
+        @keyframes colorChange {
+            0% { background-color: #f1f1f1; }
+            50% { background-color: #e0e0e0; }
+            100% { background-color: #d1d1d1; }
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Chinese whispers</h1>
+    <form th:action="@{/chinesewhispers}" th:object="${message}" method="POST" class="mt-4">
+        <div class="form-group">
+            <input type="text" class="form-control" th:field="*{messageText}" placeholder="What word you want to whisper to the computer...">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Whisper</button>
+    </form>
+    <div class="table-responsive mt-4">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Last person heard word:</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:text="${message.messageText}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
