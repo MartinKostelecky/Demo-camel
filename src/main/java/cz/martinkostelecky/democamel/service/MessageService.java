@@ -11,10 +11,6 @@ import java.util.List;
 @Service
 public class MessageService extends RouteBuilder {
 
-    private String messageProcessor(String message) {
-        return message;
-    }
-
     @Override
     public void configure() throws Exception {
         from("direct:start")
